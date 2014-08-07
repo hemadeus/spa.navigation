@@ -1,0 +1,50 @@
+<div>Menu</div>
+
+<div id='content'>
+
+</div>
+
+<script>
+ 
+ $(document).ready(function(){
+  var viewModel = new MainViewModel(); //or a menu viewmodel
+  viewModel.init();
+ }
+ 
+ 
+ 
+ 
+ function MainViewModel(){
+  this.ViewModel1 = new ViewModel1();
+  this.ViewModel2 = new ViewModel2();
+  
+  this.init = function() {
+   $(this).createNavigation({
+            mainContentControlId: 'content',
+            navigationPathList: [
+                {
+                    path: "/page1",
+                    key: "page1",
+                    viewModel: this.ViewModel1
+                },
+                {
+                    path: "/page2",
+                    key: "page2",
+                    viewModel: this.ViewModel1
+                },
+                {
+                    path: "/page3",
+                    key: "page3",
+                    viewModel: this.ViewModel2
+                },
+                {
+                    path: "/page4",
+                    key: "page4",
+                    viewModel: this.ViewModel2
+                }
+            ]
+        });
+  }
+
+ }
+</script>
